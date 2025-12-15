@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initial JS code</title>
+</head>
+<body>
+
+    <script>
+        let items=0;
+        console.log(`You have ${items} items in your cart`);
+        
+    </script>
+     
+    <button onclick="items++; console.log(`You have ${items} items in your cart`);">+1</button>
+    <button onclick="items+=2; console.log(`You have ${items} items in your cart`);">+2</button>
+    <button onclick="console.log(`Your cart was reset \nYou have ${items = 0} items in your cart `)">Reset</button>
+    <button onclick="items--; console.log(`You have ${items} items in your cart`)">-1</button>
+    <button onclick="items-=2; console.log(`You have ${items} items in your cart`)">-2</button>
+    
+</body>
+</html>
