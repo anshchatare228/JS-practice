@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Fix</title>
+</head>
+<body>
+    <!-- Use a simple function to handle the logic -->
+    <script>
+        let cart = 0;
+        alert('Your cart has currently 0 items');
+
+        function checkCart() {
+            if (cart >= 10) {
+                alert('Limit reached! Cart will be reset.');
+                cart = 0;
+            }
+            console.log(`Your cart has ${cart} items`);
+        }
+    </script>
+
+    <!-- Update the cart, then call the check function -->
+    <button onclick="cart += 1; checkCart();">+1</button>
+    <button onclick="cart += 2; checkCart();">+2</button>
+    <button onclick="cart = 0; console.log('Your cart has been reset');">Reset</button>
+</body>
+</html>
