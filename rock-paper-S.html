@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
 </head>
 
 <body>
@@ -18,14 +18,28 @@
 
     <button onclick="play('Scissors')">Scissors</button>
 
+    <button onclick="
+        score.wins=0;
+        score.losses=0;
+        score.ties=0;
+        localStorage.removeItem('score');
+        alert('Your scores were reset');
+    " >Reset Score</button>
+
     <script>
-        const score= {
-            wins: 0,
-            losses: 0,
-            ties: 0,
-        };
+        
+        let score = JSON.parse(localStorage.getItem('score'));
+
+        if(score==null){
+            score = {
+                wins: 0,
+                losses: 0,
+                ties: 0,
+            }
+        }
+
         function play(playerMove){
-            let result = '';
+            let result;
             const compMove = pickComputerMove();
 
             if(playerMove==='Rock'){
@@ -70,7 +84,11 @@
             }
             else{
                 score.ties += 1;
-            }
+            } 
+
+            /*storing the scores in the system*/
+            localStorage.setItem('score' , JSON.stringify(score)); 
+
             alert(`You picked ${playerMove}. Computer picked ${compMove}. ${result}\nWins: ${score.wins}  losses: ${score.losses}  Ties: ${score.ties}`);
         }
 
