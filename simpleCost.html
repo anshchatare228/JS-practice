@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        background-color: rgb(208, 208, 208);
+    }</style>
+</head>
+<body>
+    <h3>please enter the amount of your order</h3>
+    <input placeholder="total amount"  class="calculate">
+    <button onclick="totalBill()">Calculate</button>
+    <button onclick="reset()">Reset</button>
+    <p class="js-cost"></p>
+
+    <script>
+        let initialCost; /*make cost a global variable so it can be used by multiple functions*/  
+        let newCost;
+        let finalCost;
+
+        function totalBill(){
+            let inputAmount = document.querySelector('input').value;
+            let initialCost = parseFloat(inputAmount);
+
+            if(initialCost>40){
+                newCost = initialCost;
+                let gst = 0.18 * newCost;
+                finalCost = newCost + gst;
+                document.querySelector('.js-cost').innerHTML = `Amount = ${initialCost}<br>Delivery charges = FREE<br>GST = ${gst.toFixed(2)}<br>Total amount = ${finalCost.toFixed(2)}  ≈ ${finalCost.toFixed(0)}`;
+            }
+
+            else if(inputAmount === ''){
+                document.querySelector('.js-cost').innerHTML = 'please enter an amount';
+            }
+
+            else{
+                newCost = initialCost  + 10;
+                let gst = 0.18 * newCost;
+                finalCost = newCost + gst;
+                document.querySelector('.js-cost').innerHTML = `Amount = ${initialCost}<br>Delivery charges = 10<br>GST = ${gst.toFixed(2)}<br>Total amount = ${finalCost.toFixed(2)} ≈ ${finalCost.toFixed(0)}`;
+            }
+        }
+
+        function reset(){
+            document.querySelector('input').value = ''; /*This is to clear the input box*/
+            document.querySelector('.js-cost').innerHTML = 'your bill was reset';
+        }
+    </script>   
+
+</body>
+</html>
