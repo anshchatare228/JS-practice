@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="headsCalculation()">Heads</button>
+    <button onclick="tailsCalculation()">Tails</button>
+
+    <p class="js-print"></p>
+
+    <script>
+        function headsCalculation(){
+            const number = Math.random();
+            if(number>=0.5){
+                document.querySelector('.js-print').innerHTML = 'You Won';
+            }
+
+            else{
+                document.querySelector('.js-print').innerHTML = 'You lost';
+            }
+        }
+        
+        function tailsCalculation(){
+            const number = Math.random();
+            if(number<=0.5){
+                document.querySelector('.js-print').innerHTML = 'You Won';
+            }
+    
+            else{
+                document.querySelector('.js-print').innerHTML = 'You lost';
+            }
+        }
+    </script>
+</body>
+</html>
