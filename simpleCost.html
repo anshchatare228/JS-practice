@@ -15,7 +15,7 @@
 
     <script>
         let initialCost; /*make cost a global variable so it can be used by multiple functions*/  
-        let newCost;
+        let newCost;   
         let finalCost;
 
         function totalBill(){
@@ -23,23 +23,27 @@
             let inputAmount = document.querySelector('input').value;
             let initialCost = Number(inputAmount);
 
-            if(initialCost>=40){
+            if(initialCost>=100){   
                 newCost = initialCost;
-                let gst = 0.18 * newCost;
+                let gst = 0.18 * initialCost;
                 finalCost = newCost + gst;
                 document.querySelector('.js-cost').innerHTML = `Amount = ${initialCost}₹<br>GST(18%) = ${gst.toFixed(2)}₹<br>Delivery charges = FREE<br>Total amount = ${finalCost.toFixed(2)}₹  ≈ ${finalCost.toFixed(0)}₹`;
             }
-
+            
             else if(inputAmount === '' || inputAmount === '0'){
                 document.querySelector('.js-cost').innerHTML = 'please enter an amount';
             }
 
             else{
-                newCost = initialCost  + 10;
-                let gst = 0.18 * newCost;
+                // Array of possible delivery charges
+                let deliveryOptions = [5, 10, 15, 20, 30];
+                let deliveryCharge = deliveryOptions[Math.floor(Math.random() * deliveryOptions.length)];
+                
+                newCost = initialCost  + deliveryCharge;
+                let gst = 0.18 * initialCost;
                 finalCost = newCost + gst;
-                document.querySelector('.js-cost').innerHTML = `Amount = ${initialCost}₹ (Buy items worth ${40-initialCost}₹ to avail FREE delivery)<br>GST(18%) = ${gst.toFixed(2)}₹
-                <br>Delivery charges = 10<br>Total amount = ${finalCost.toFixed(2)}₹ ≈ ${finalCost.toFixed(0)}`;
+                document.querySelector('.js-cost').innerHTML = `Amount = ${initialCost}₹ (Buy items worth ${(100-initialCost)}₹ to avail FREE delivery)<br>GST(18%) = ${gst.toFixed(2)}₹
+                <br>Delivery charges = ${deliveryCharge}₹<br>Total amount = ${finalCost.toFixed(2)}₹ ≈ ${finalCost.toFixed(0)}₹`;
             }
         }
 
