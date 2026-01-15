@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To</title>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="to-Do.css">
 </head>
 <body>
-    <script src="todo.js"></script>
-    <p>Please enter your task</p>
+    <script src="To-Do.js"></script>
+    <p id="heading">Please enter your task</p>
     <input placeholder="Your task" class="js-input" onkeydown="addOnEnter()">
-    <button onclick="addTask();">Add</button>
-    <p class="js-print"></p>
+    <input class="js-due-date" type="date">
+    <button onclick="
+    addTask();" 
+    class="js-add-button">Add</button>
+    <div class="js-print"></div>
 </body>
 </html>
