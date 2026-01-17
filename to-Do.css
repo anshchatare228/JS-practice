@@ -10,11 +10,16 @@
     padding-left: 0.4rem;
 }
 .js-due-date{
-    margin-left: 1rem;
+    margin-left: 3rem;
     padding-top: 0.35rem ;
     padding-bottom:0.33rem ;
     padding-left: 0.4rem;
     font-size: 1rem;
+}
+
+.css-due-date{
+    align-self: center;
+    justify-self: start;
 }
 
 .js-add-button{
@@ -35,14 +40,24 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.js-deleat-button{
-    margin-left: 1rem;
+.js-delete-button{
+    margin-left: 4rem;
     padding-top: 0.4rem ;
     padding-bottom:0.4rem ;
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
+    padding-left: 1rem;
+    padding-right: 1.08rem;
     font-size: 1rem;
     background-color: rgb(255, 48, 48);
     color: rgb(0, 0, 0);
     border: none;
+    justify-self: end;
+}
+
+.js-print{
+    display: grid !important;
+    margin-top: 1rem;
+    margin-right: 43.15rem;
+    grid-template-columns: 1fr 125px 80px;
+    justify-content: center;
+    align-items: center;    
 }

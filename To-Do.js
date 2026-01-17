@@ -19,9 +19,14 @@ function renderToDoList(){
     let toDoHTML = '';
     for(let i=0; i < toDoList.length ; i++ ){ 
     let html = `
-        <p class="js-task-text">${i+1}. ${toDoList[i].name}${toDoList[i].dueDate}
-        <button class="js-deleat-button" onclick="toDoList.splice(${i},1);                
-        renderToDoList();">Deleat</button></p>
+
+        <span class="js-task-text">${toDoList[i].name}</span>
+        <span class="css-due-date">${toDoList[i].dueDate}</span>
+        <button class="js-delete-button" 
+        onclick="toDoList.splice(${i},1);                
+        renderToDoList();
+        ">Delete</button>
+    
         ` //The above block adds a deleat button which on clicked spliced the index on which it is clicked 
         toDoHTML += html;
     }
@@ -29,7 +34,7 @@ function renderToDoList(){
     document.querySelector('.js-print').innerHTML = toDoHTML;
 }
 
-//This function basically runs the addtask but when the Enter jey is pressed (just a feature)
+//This function basically runs the addtask but when the Enter key is pressed (just a feature)
 function addOnEnter(){
     if(event.key === 'Enter'){
         addTask();
