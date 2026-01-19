@@ -53,10 +53,30 @@
     justify-self: end;
 }
 
+.js-delete-all-button{
+    margin-left: 1.1rem;
+    padding-top: 0.5rem ;
+    padding-bottom:0.5rem ;
+    padding-left: 1rem;
+    padding-right: 1.08rem;
+    font-size: 1rem;
+    background-color: rgb(255, 48, 48);
+    color: rgb(0, 0, 0);
+    border: none;
+    display: none;
+    transition: scale 0.2s ease-in-out;
+}
+
+.js-delete-all-button:hover{
+    scale: 1.05;
+}
+
 .js-print{
     display: grid !important;
-    margin-top: 1rem;
-    margin-right: 43.15rem;
+    margin-top: 1rem
+    
+    ;
+    margin-right: 63.8rem;
     grid-template-columns: 1fr 125px 80px;
     justify-content: center;
     align-items: center;    

@@ -9,11 +9,12 @@
 <body>
     <script src="To-Do.js"></script>
     <p id="heading">Please enter your task</p>
-    <input placeholder="Your task" class="js-input" onkeydown="addOnEnter()">
+    <input placeholder="please add task" class="js-input" onkeydown="addOnEnter()">
     <input class="js-due-date" type="date">
     <button onclick="
     addTask();" 
     class="js-add-button">Add</button>
+    <button class="js-delete-all-button" onclick="deleteAllButton()">Delete All</button>
     <div class="js-print"></div>
 </body>
 </html>

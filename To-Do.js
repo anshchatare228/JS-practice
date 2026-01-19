@@ -18,17 +18,22 @@ function addTask(){
 function renderToDoList(){
     let toDoHTML = '';
     for(let i=0; i < toDoList.length ; i++ ){ 
-    let html = `
-
-        <span class="js-task-text">${toDoList[i].name}</span>
-        <span class="css-due-date">${toDoList[i].dueDate}</span>
-        <button class="js-delete-button" 
-        onclick="toDoList.splice(${i},1);                
-        renderToDoList();
-        ">Delete</button>
-    
-        ` //The above block adds a deleat button which on clicked spliced the index on which it is clicked 
+    let html = `<span class="js-task-text">${toDoList[i].name}</span>
+                <span class="css-due-date">${toDoList[i].dueDate}</span>
+                <button class="js-delete-button" 
+                onclick="toDoList.splice(${i},1);                
+                renderToDoList();">Delete</button>` 
+            //The above block adds a deleat button which on clicked spliced the index on which it is clicked 
         toDoHTML += html;
+    }
+
+    //make the 'Delete all' button appear and disappear
+    if(toDoList.length > 1){
+        document.querySelector('.js-delete-all-button').style.display = 'inline-block';
+    }
+
+    else{
+        document.querySelector('.js-delete-all-button').style.display = 'none'
     }
     console.log(toDoHTML);
     document.querySelector('.js-print').innerHTML = toDoHTML;
@@ -39,4 +44,10 @@ function addOnEnter(){
     if(event.key === 'Enter'){
         addTask();
     }
+}
+
+//lenth = 0 means the array is cleared, then again render the HTML which is empty
+function deleteAllButton(){
+    toDoList.length = 0;
+    renderToDoList();
 }
