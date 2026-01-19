@@ -1,5 +1,7 @@
+//main array
 const toDoList = [];
 
+//this fuc=nction will take the input and push them into the array's indexes along with the due date 
 function addTask(){
     let name = document.querySelector('.js-input').value;
     let dueDate = document.querySelector('.js-due-date').value;
@@ -8,13 +10,14 @@ function addTask(){
         dueDate: dueDate,
     });
     
+    //this will render the updated list
     renderToDoList();
 
     document.querySelector('.js-input').value = '';
     return name;
 }
 
-//this function basically loops through the array and take every index, converts it into a HTML syntax using <p></p> tags and then again pu it into the div class, we took div element bacause it takes up the whole viewpage so the lists 'Stacks' one above another.
+//this function basically loops through the array and take every index, converts it into a HTML syntax using <p></p> tags and then again put it into the div class, we took div element bacause it takes up the whole viewpage so the lists 'Stacks' one above another.
 function renderToDoList(){
     let toDoHTML = '';
     for(let i=0; i < toDoList.length ; i++ ){ 
